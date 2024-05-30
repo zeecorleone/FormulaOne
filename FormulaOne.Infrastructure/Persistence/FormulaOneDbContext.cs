@@ -8,6 +8,7 @@ namespace FormulaOne.Infrastructure.Persistence;
 public class FormulaOneDbContext : DbContext
 {
     //dotnet ef migrations add "initial-migration" --project FormulaOne.Infrastructure --startup-project FormulaOne.Api
+    //dotnet ef database update --startup-project FormulaOne.Api
 
     public FormulaOneDbContext(DbContextOptions<FormulaOneDbContext> options)
         : base(options)

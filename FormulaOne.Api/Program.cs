@@ -1,5 +1,7 @@
 
+using FormulaOne.Domain.Interfaces;
 using FormulaOne.Infrastructure.Persistence;
+using FormulaOne.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace FormulaOne.Api
@@ -19,6 +21,8 @@ namespace FormulaOne.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             var app = builder.Build();
 
