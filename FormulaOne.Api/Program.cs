@@ -1,4 +1,6 @@
 
+using FormulaOne.Application;
+using FormulaOne.Application.MappingProfiles;
 using FormulaOne.Domain.Interfaces;
 using FormulaOne.Infrastructure.Persistence;
 using FormulaOne.Infrastructure.Repositories;
@@ -21,6 +23,16 @@ namespace FormulaOne.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //var test = typeof(RequestToDomain).Assembly;
+            //var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            //var assem = loadedAssemblies.Where(x => x.GetName().Name.Contains("FormulaOne")).ToList();
+
+            //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            var applicationAssembly = typeof(ApplicationAssemblyMarker).Assembly;
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
